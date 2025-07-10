@@ -3,7 +3,9 @@ This research project analyzes the social media activity of candidates during th
 
 # Dataset Access
 This project uses a dataset containing Facebook ads, Facebook posts, and Twitter posts related to the 2024 U.S. Presidential Election.
-🔗 **Dataset Access:**  
+
+**Dataset Access:**  
 [Google Drive Link (provided by course)](https://drive.google.com/file/d/1Jq0fPb-tq76Ee_RtM58fT0_M3o-JDBwe/view?usp=sharing)
+
 **Important:**  
 This dataset was provided for academic use only. Please do not upload it to GitHub. The data is excluded from this repository using `.gitignore`.
