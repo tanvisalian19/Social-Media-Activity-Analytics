@@ -1,3 +1,4 @@
+""" SCRIPT 1 - PURE PYTHON (NO PANDAS, NO POLARS) """
 import csv
 import math
 from collections import defaultdict, Counter
