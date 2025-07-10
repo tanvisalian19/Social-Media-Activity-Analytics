@@ -73,29 +73,39 @@ def print_stats(label, stats):
         for k, v in stat.items():
             print(f"  {k}: {v}")
 
-def run_analysis(file_path):
+def run_analysis(file_path, dataset_name):
+    """Run full analysis for a given dataset file and label."""
+    print(f"\n\n==================== Analyzing: {dataset_name} ====================")
     data = load_csv(file_path)
 
     # Overall dataset stats
     overall_stats = compute_stats(data)
     print_stats("Overall Dataset", overall_stats)
 
-    # Grouped by page_id
-    grouped_page = group_by(data, 'page_id')
-    for group, records in list(grouped_page.items())[:3]:  # print first 3 groups
-        group_stats = compute_stats(records)
-        print_stats(f"Group by page_id: {group}", group_stats)
+    # Check if 'page_id' exists before grouping
+    if 'page_id' in data[0]:
+        grouped_page = group_by(data, 'page_id')
+        for group, records in list(grouped_page.items())[:3]:  # limit to 3 groups
+            group_stats = compute_stats(records)
+            print_stats(f"Group by page_id: {group}", group_stats)
+    else:
+        print("\n'page_id' column not found, skipping grouping by page_id.")
 
-    # Grouped by (page_id, ad_id)
-    ad_id_exists = 'ad_id' in data[0]
-    if ad_id_exists:
-        grouped_combined = group_by(data, 'page_id', 'ad_id')
-        for group, records in list(grouped_combined.items())[:3]:  # print first 3 groups
+    # Check if 'ad_id' exists before grouping
+    if 'page_id' in data[0] and 'ad_id' in data[0]:
+        grouped_combo = group_by(data, 'page_id', 'ad_id')
+        for group, records in list(grouped_combo.items())[:3]:  # limit to 3 groups
             group_stats = compute_stats(records)
             print_stats(f"Group by (page_id, ad_id): {group}", group_stats)
     else:
-        print("\n'ad_id' column not found, skipping (page_id, ad_id) grouping.")
+        print("\nEither 'page_id' or 'ad_id' not found, skipping (page_id, ad_id) grouping.")
 
 if __name__ == "__main__":
-    filepath = "2024_fb_posts_president_scored_anon.csv"
-    run_analysis(filepath)
+    datasets = {
+        "Facebook Ads": "2024_fb_ads_president_scored_anon.csv",
+        "Facebook Posts": "2024_fb_posts_president_scored_anon.csv",
+        "Twitter Posts": "2024_tw_posts_president_scored_anon.csv"
+    }
+
+    for name, path in datasets.items():
+        run_analysis(path, name)
