@@ -8,8 +8,8 @@ def analyze_dataset_polars(file_path, dataset_name):
     df = pl.read_csv(file_path)
 
     # Basic info
-    print(f"📌 Shape: {df.shape}")
-    print(f"📌 Columns: {df.columns}")
+    print(f" Shape: {df.shape}")
+    print(f" Columns: {df.columns}")
 
     # Descriptive statistics (numeric columns)
     print("\n--- Descriptive Statistics ---")
