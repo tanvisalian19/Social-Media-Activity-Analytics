@@ -5,8 +5,8 @@ def analyze_dataset(file_path, dataset_name):
     print(f"\n\n==================== Analyzing: {dataset_name} ====================\n")
 
     df = pd.read_csv(file_path)
-    print(f"📌 Shape: {df.shape}")
-    print(f"📌 Columns: {df.columns.tolist()}")
+    print(f" Shape: {df.shape}")
+    print(f" Columns: {df.columns.tolist()}")
 
     # ----------------------------
     # 1. Overall Descriptive Stats
