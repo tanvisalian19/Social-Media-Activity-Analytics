@@ -31,9 +31,13 @@ Language field: English dominates, but multilingual presence may exist.
 
 # Interesting Insights 
 High Skew in Metrics → 	Across ads and posts, variables like clicks, impressions, likes, and shares are heavily right-skewed — very few posts/ads drive most of the engagement.
+
 Text Fields → Unique Explosion	Fields like message, tweet_text, and ad_creative_body are mostly unique, making them great candidates for NLP or clustering, but not for simple aggregation.
+
 Campaign Objective Trends	→ The most frequent Facebook Ad objective was consistently "LINK_CLICKS" → signaling a common strategy to drive traffic.
+
 Platform Bias → Twitter had more informational text, while Facebook Posts and Ads leaned more toward calls to action and engagement.
+
 Efficiency → Polars outperforms in speed and memory, while Pandas offers more detailed control and integration with external libraries. Pure Python is educational, but impractical at scale.
 
 # Final Takeaways:
